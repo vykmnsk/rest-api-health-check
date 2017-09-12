@@ -1,0 +1,122 @@
+ENV:
+  WAPI: http://testwapi.com
+  MOBI: http://testmobi.com
+  LOCAL: http://localhost:8888
+
+WAPI:
+  api_url: /wapi.php
+  credentials:
+    wapi_client_user: testapi
+    wapi_client_pass: testpwd
+    client_ip: '127.0.0.1'
+
+
+MOBI_V2: 
+  api_url: /mobi/v2/web
+  get_endpoints:
+    smoke:
+      - /customer
+      - /customer/balance
+    all:
+      # Account
+      - /customer
+      - /customer/balance
+      - /customer/available_promotions
+      - /customer/bet
+      - /customer/betting_defaults
+      - /customer/deposit_url
+      - /customer/get_casino_loss_limit
+      - /customer/get_casino_token
+      - /customer/get_contact_preferences
+      - /customer/get_deposit_limits
+      - /customer/get_gsi_token
+      - /customer/get_secret_question
+      - /customer/pending_bets
+      - /customer/secret_question_list
+      - /customer/statement
+      - /customer/verify
+      - /customer/withdraw_url
+      - /get_promotion
+      # Betting
+      - /betslip/ticket_details_bonusbet
+      - /cash_out
+      # Payment
+      - /payment/available
+      - /payment/encryption_function_content
+      - /payment/encryption_function_url
+      - /payment/encryption_key
+      - /payment/errors_list
+      - /payment/info/stored
+      - /payment/methods
+      - /payment/reference
+      # Casino
+      - /casino/get_microgaming_token
+      - /casino/get_won_loss_amount
+      - /casino/get_microgaming_statement
+      # Max Hard Limit
+      - /maxhardlimit/selection/accept
+      - /maxhardlimit/selection/reject
+      - /maxhardlimit/parlay/accept
+      - /maxhardlimit/parlay/reject
+
+  post_endpoints:
+    smoke: 
+      - /login
+      - /logout
+    all: 
+      # Account
+      - /login
+      - /logout
+      - /customer
+      - /customer/activate_pending_deposit_limits
+      - /customer/livevisionevents
+      - /customer/password_reset
+      - /customer/password_reset_get_secret_question
+      - /customer/promo
+      - /customer/self_exclusion
+      - /customer/set_casino_loss_limit
+      - /customer/set_contact_preferences
+      - /customer/set_deposit_limits
+      - /customer/set_secret_question
+      - /customer/set_tc
+      - /customer/set_timeout
+      - /customer/update
+      - /customer/validate_username
+      - /renew_access_token
+      # Betting
+      - /intercept
+      - /intercept/action
+      # Payment
+      - /payment/deposit/card
+      - /payment/deposit/neteller
+      - /payment/deposit/neteller/return
+      - /payment/deposit/skrill
+      - /payment/deposit/skrill/return
+      - /payment/deposit/stored
+      - /payment/notification
+      - /payment/remove/stored
+      - /payment/withdraw/stored
+      # Playtech
+      - /playtech/casino_request
+      - /playtech/player_request
+      # External
+      - /external/customer/account_info
+      - /external/bet/place
+      - /external/bet/cancel
+      - /external/bet/cash_out
+      - /external/bet/settle
+      - /external/bet/query
+      - /external/customer/history
+
+  put_endpoints:
+    smoke:
+      - /betslip/checkout
+    all:
+      # Account
+      - /customer/betting_defaults
+      # - /customer/deposit_limit # use the one below instead
+      - /customer/wagering_limits
+      # Betting
+      - /betslip/checkout
+      - /cash_out
+      - /multi_cash_out
